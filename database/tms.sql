@@ -52,7 +52,10 @@ CREATE TABLE `tblbooking` (
   `UserEmail` varchar(100) NOT NULL,
   `FromDate` varchar(100) NOT NULL,
   `ToDate` varchar(100) NOT NULL,
-  `Comment` mediumtext NOT NULL,
+  `Males` varchar(100) NOT NULL,
+  `Females` varchar(100) NOT NULL,
+  `Childs` varchar(100) NOT NULL,
+  `Transport` varchar(100) NOT NULL,
   `RegDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `status` int(11) NOT NULL,
   `CancelledBy` varchar(5) DEFAULT NULL,
@@ -63,7 +66,7 @@ CREATE TABLE `tblbooking` (
 -- Dumping data for table `tblbooking`
 --
 
-INSERT INTO `tblbooking` (`BookingId`, `PackageId`, `UserEmail`, `FromDate`, `ToDate`, `Comment`, `RegDate`, `status`, `CancelledBy`, `UpdationDate`) VALUES
+INSERT INTO `tblbooking` (`BookingId`, `PackageId`, `UserEmail`, `FromDate`, `ToDate`, `Males`,`Females`,`Childs`,`Transport`, `RegDate`, `status`, `CancelledBy`, `UpdationDate`) VALUES
 (2, 1, 'anuj@gmail.com', '05/18/2017', '05/31/2017', '"Lorem ipsum dolor sit amet, cpariatur. Excepteur sint ', '2017-05-13 19:01:10', 2, 'u', '2017-05-13 21:30:23'),
 (9, 1, 'demo@test.com', '05/19/2017', '05/21/2017', 'demo test demo test', '2017-05-14 07:45:11', 1, NULL, '2017-05-14 07:47:45'),
 (10, 5, 'abc@g.com', '05/22/2017', '05/24/2017', 'test test t test test ttest test ttest test ttest test ttest test ttest test ttest test ttest test ttest test ttest test ttest test ttest test ttest test t', '2017-05-14 07:56:26', 1, NULL, '2017-05-14 07:58:19');
