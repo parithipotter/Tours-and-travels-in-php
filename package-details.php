@@ -10,13 +10,16 @@ $fromdate=$_POST['fromdate'];
 $todate=$_POST['todate'];
 $comment=$_POST['comment'];
 $status=0;
-$sql="INSERT INTO tblbooking(PackageId,UserEmail,FromDate,ToDate,Comment,status) VALUES(:pid,:useremail,:fromdate,:todate,:comment,:status)";
+$sql="INSERT INTO tblbooking(PackageId,UserEmail,FromDate,ToDate,Comment,status) VALUES(:pid,:useremail,:fromdate,:todate,:Males,:Females,:Childs,:Transport,:status)";
 $query = $dbh->prepare($sql);
 $query->bindParam(':pid',$pid,PDO::PARAM_STR);
 $query->bindParam(':useremail',$useremail,PDO::PARAM_STR);
 $query->bindParam(':fromdate',$fromdate,PDO::PARAM_STR);
 $query->bindParam(':todate',$todate,PDO::PARAM_STR);
-$query->bindParam(':comment',$comment,PDO::PARAM_STR);
+$query->bindParam(':Males',$Males,PDO::PARAM_STR);
+$query->bindParam(':Females',$Females,PDO::PARAM_STR);
+$query->bindParam(':Childs',$Childs,PDO::PARAM_STR);
+$query->bindParam(':Transport',$Transport,PDO::PARAM_STR);
 $query->bindParam(':status',$status,PDO::PARAM_STR);
 $query->execute();
 $lastInsertId = $dbh->lastInsertId();
@@ -143,9 +146,49 @@ foreach($results as $result)
 				<ul>
 				
 					<li class="spe">
-						<label class="inputLabel">Comment</label>
-						<input class="special" type="text" name="comment" required="">
+						<label class="inputLabel">Members</label>
+						<input class="special" type="text" name="Members" required="">
 					</li>
+					<div class="Males">
+						<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							Number of males
+						</button>
+						<div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+							<button class="0" type="button">0</button>
+							<button class="1-5" type="button">1-5</button>
+							<button class="5-10" type="button">5-10</button>
+						</div>
+					</div>
+					<div class="Females">
+						<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							Number of females
+						</button>
+						<div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+							<button class="0" type="button">0</button>
+							<button class="1-5" type="button">1-5</button>
+							<button class="5-10" type="button">5-10</button>
+						</div>
+					</div>
+					<div class="Childs">
+						<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							Number of childs
+						</button>
+						<div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+							<button class="0" type="button">0</button>
+							<button class="1-5" type="button">1-5</button>
+							<button class="5-10" type="button">5-10</button>
+						</div>
+					</div>
+					<div class="Transport">
+						<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							Mode of Transport
+						</button>
+						<div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+							<button class="Bus" type="button">Bus</button>
+							<button class="Train" type="button">Train</button>
+							<button class="Aeroplane" type="button">Aeroplane</button>
+						</div>
+					</div>
 					<?php if($_SESSION['login'])
 					{?>
 						<li class="spe" align="center">
