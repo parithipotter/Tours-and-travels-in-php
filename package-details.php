@@ -10,7 +10,7 @@ $fromdate=$_POST['fromdate'];
 $todate=$_POST['todate'];
 $comment=$_POST['comment'];
 $status=0;
-$sql="INSERT INTO tblbooking(PackageId,UserEmail,FromDate,ToDate,Comment,status) VALUES(:pid,:useremail,:fromdate,:todate,:Males,:Females,:Childs,:Transport,:status)";
+$sql="INSERT INTO tblbooking(PackageId,UserEmail,FromDate,ToDate,Males,Females,Childs,Transport,status) VALUES(:pid,:useremail,:fromdate,:todate,:Males,:Females,:Childs,:Transport,:status)";
 $query = $dbh->prepare($sql);
 $query->bindParam(':pid',$pid,PDO::PARAM_STR);
 $query->bindParam(':useremail',$useremail,PDO::PARAM_STR);
