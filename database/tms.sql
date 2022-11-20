@@ -56,7 +56,7 @@ CREATE TABLE `tblbooking` (
   `Females` varchar(100) NOT NULL,
   `Childs` varchar(100) NOT NULL,
   `Transport` varchar(100) NOT NULL,
-  `RegDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `RegDate` timestamp DEFAULT NULL DEFAULT CURRENT_TIMESTAMP,
   `status` int(11) NOT NULL,
   `CancelledBy` varchar(5) DEFAULT NULL,
   `UpdationDate` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP
